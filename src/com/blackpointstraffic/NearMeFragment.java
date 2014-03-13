@@ -13,11 +13,13 @@ import android.view.ViewGroup;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class NearMeFragment extends SupportMapFragment implements
 		LocationListener {
-	
+
 	public NearMeFragment() {
 	}
 
@@ -48,6 +50,12 @@ public class NearMeFragment extends SupportMapFragment implements
 			onLocationChanged(location);
 		}
 		locationManager.requestLocationUpdates(provider, 20000, 0, this);
+
+		MarkerOptions marker = new MarkerOptions().position(new LatLng(location
+				.getLatitude(), location.getLongitude()));
+		
+		marker.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+		map.addMarker(marker);
 	}
 
 	@Override

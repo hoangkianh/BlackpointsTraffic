@@ -24,7 +24,24 @@
     <!-- Content Description -->
     <string name="desc_list_item_icon">Item Icon</string>
     
+    <!-- Dialog message -->
     <string name="caption_error_connection">Lỗi kết nối</string>
     <string name="msg_error_connection">Opps! Ứng dụng này yêu cầu kết nối Internet.\n Hãy kiểm tra lại kết nối Internet của bạn.</string>
-
+    
+    <!-- url connection -->
+    <string name="URL_GET_ALL_POI">http://10.0.2.2:8080/BlackpointsTrafficServer/service/client/getAll</string>
+    
+    <!-- Json node name -->
+    <!-- ====== POI ====== -->
+    <string name="TAG_ID">id</string>
+    <string name="TAG_NAME">name</string>
+    <string name="TAG_ADDRESS">address</string>
+    <string name="TAG_CITY">city</string>
+    <string name="TAG_DISTRICT">district</string>
+    <string name="TAG_DESCRIPTION">description</string>
+    <string name="TAG_IMAGE">image</string>
+    <string name="TAG_MARKER_ICON">markerIcon</string>
+    <string name="TAG_GEOMETRY">geometry</string>
+    <string name="TAG_RATING">rating</string>
+    <string name="TAG_CREATE_DATE">createdOnDate</string>
 </resources>

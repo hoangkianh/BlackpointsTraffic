@@ -246,7 +246,7 @@ containing a value of this type.
         public static final int list_selector=0x7f020026;
     }
     public static final class id {
-        public static final int action_settings=0x7f05000a;
+        public static final int action_settings=0x7f05000b;
         public static final int drawer_layout=0x7f050005;
         public static final int frame_container=0x7f050006;
         public static final int hybrid=0x7f050004;
@@ -257,6 +257,7 @@ containing a value of this type.
         public static final int satellite=0x7f050002;
         public static final int terrain=0x7f050003;
         public static final int title=0x7f050009;
+        public static final int txt=0x7f05000a;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f070000;
@@ -271,6 +272,23 @@ containing a value of this type.
         public static final int main=0x7f0b0000;
     }
     public static final class string {
+        public static final int TAG_ADDRESS=0x7f060023;
+        public static final int TAG_CITY=0x7f060024;
+        public static final int TAG_CREATE_DATE=0x7f06002b;
+        public static final int TAG_DESCRIPTION=0x7f060026;
+        public static final int TAG_DISTRICT=0x7f060025;
+        public static final int TAG_GEOMETRY=0x7f060029;
+        /**  Json node name 
+ ====== POI ====== 
+         */
+        public static final int TAG_ID=0x7f060021;
+        public static final int TAG_IMAGE=0x7f060027;
+        public static final int TAG_MARKER_ICON=0x7f060028;
+        public static final int TAG_NAME=0x7f060022;
+        public static final int TAG_RATING=0x7f06002a;
+        /**  url connection 
+         */
+        public static final int URL_GET_ALL_POI=0x7f060020;
         public static final int action_settings=0x7f06001b;
         public static final int app_name=0x7f06001a;
         /**   Title for notification shown when GooglePlayServices needs to be
@@ -296,6 +314,8 @@ containing a value of this type.
         [CHAR LIMIT=70] 
          */
         public static final int auth_client_using_bad_version_title=0x7f060014;
+        /**  Dialog message 
+         */
         public static final int caption_error_connection=0x7f06001e;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
