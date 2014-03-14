@@ -230,20 +230,21 @@ containing a value of this type.
         public static final int common_signin_btn_text_pressed_dark=0x7f020016;
         public static final int common_signin_btn_text_pressed_light=0x7f020017;
         public static final int ic_about=0x7f020018;
-        public static final int ic_drawer=0x7f020019;
-        public static final int ic_failure=0x7f02001a;
-        public static final int ic_home=0x7f02001b;
-        public static final int ic_launcher=0x7f02001c;
-        public static final int ic_nearme=0x7f02001d;
-        public static final int ic_plusone_medium_off_client=0x7f02001e;
-        public static final int ic_plusone_small_off_client=0x7f02001f;
-        public static final int ic_plusone_standard_off_client=0x7f020020;
-        public static final int ic_plusone_tall_off_client=0x7f020021;
-        public static final int ic_settings=0x7f020022;
-        public static final int ic_success=0x7f020023;
-        public static final int list_item_bg_normal=0x7f020024;
-        public static final int list_item_bg_pressed=0x7f020025;
-        public static final int list_selector=0x7f020026;
+        public static final int ic_cur_position=0x7f020019;
+        public static final int ic_drawer=0x7f02001a;
+        public static final int ic_failure=0x7f02001b;
+        public static final int ic_home=0x7f02001c;
+        public static final int ic_launcher=0x7f02001d;
+        public static final int ic_nearme=0x7f02001e;
+        public static final int ic_plusone_medium_off_client=0x7f02001f;
+        public static final int ic_plusone_small_off_client=0x7f020020;
+        public static final int ic_plusone_standard_off_client=0x7f020021;
+        public static final int ic_plusone_tall_off_client=0x7f020022;
+        public static final int ic_settings=0x7f020023;
+        public static final int ic_success=0x7f020024;
+        public static final int list_item_bg_normal=0x7f020025;
+        public static final int list_item_bg_pressed=0x7f020026;
+        public static final int list_selector=0x7f020027;
     }
     public static final class id {
         public static final int action_settings=0x7f05000b;
@@ -272,23 +273,24 @@ containing a value of this type.
         public static final int main=0x7f0b0000;
     }
     public static final class string {
-        public static final int TAG_ADDRESS=0x7f060023;
-        public static final int TAG_CITY=0x7f060024;
-        public static final int TAG_CREATE_DATE=0x7f06002b;
-        public static final int TAG_DESCRIPTION=0x7f060026;
-        public static final int TAG_DISTRICT=0x7f060025;
-        public static final int TAG_GEOMETRY=0x7f060029;
+        public static final int TAG_ADDRESS=0x7f060024;
+        public static final int TAG_CITY=0x7f060025;
+        public static final int TAG_CREATE_DATE=0x7f06002c;
+        public static final int TAG_DESCRIPTION=0x7f060027;
+        public static final int TAG_DISTRICT=0x7f060026;
+        public static final int TAG_GEOMETRY=0x7f06002a;
         /**  Json node name 
  ====== POI ====== 
          */
-        public static final int TAG_ID=0x7f060021;
-        public static final int TAG_IMAGE=0x7f060027;
-        public static final int TAG_MARKER_ICON=0x7f060028;
-        public static final int TAG_NAME=0x7f060022;
-        public static final int TAG_RATING=0x7f06002a;
+        public static final int TAG_ID=0x7f060022;
+        public static final int TAG_IMAGE=0x7f060028;
+        public static final int TAG_MARKER_ICON=0x7f060029;
+        public static final int TAG_NAME=0x7f060023;
+        public static final int TAG_RATING=0x7f06002b;
         /**  url connection 
+ string name="URL_GET_ALL_POI">http://10.0.2.2:8080/BlackpointsTrafficServer/service/client/getAll</string
          */
-        public static final int URL_GET_ALL_POI=0x7f060020;
+        public static final int URL_GET_ALL_POI=0x7f060021;
         public static final int action_settings=0x7f06001b;
         public static final int app_name=0x7f06001a;
         /**   Title for notification shown when GooglePlayServices needs to be
@@ -316,7 +318,7 @@ containing a value of this type.
         public static final int auth_client_using_bad_version_title=0x7f060014;
         /**  Dialog message 
          */
-        public static final int caption_error_connection=0x7f06001e;
+        public static final int caption_error_connection=0x7f06001f;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
@@ -390,9 +392,10 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f060013;
         /**  Content Description 
          */
-        public static final int desc_list_item_icon=0x7f06001d;
+        public static final int desc_list_item_icon=0x7f06001e;
         public static final int hello_world=0x7f06001c;
-        public static final int msg_error_connection=0x7f06001f;
+        public static final int msg_error_connection=0x7f060020;
+        public static final int txtAddress_placeholder=0x7f06001d;
     }
     public static final class style {
         /** 

@@ -32,17 +32,4 @@ public class GeoUtil {
 		}
 		return geoList;
 	}
-
-	public static double caculateDistance(GeoLocation geo1, GeoLocation geo2) {
-
-		double radLat1 = Math.toRadians(geo1.getLat());
-		double radLng1 = Math.toRadians(geo1.getLng());
-		double radLat2 = Math.toRadians(geo2.getLat());
-		double radLng2 = Math.toRadians(geo2.getLng());
-
-		double distance = Math.acos(Math.sin(radLat1) * Math.sin(radLat2)
-				+ Math.cos(radLat1) * Math.cos(radLat2)
-				* Math.cos(radLng2 - radLng1)) * 6371000;
-		return distance;
-	}
 }
