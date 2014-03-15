@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="5dp" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- Image -->
 
     <LinearLayout
         android:id="@+id/thumbnail"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginRight="5dp"
         android:padding="3dp" >
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_launcher" />
     </LinearLayout>
@@ -27,13 +27,24 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/thumbnail"
-        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_below="@+id/thumbnail"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
         android:text="@string/app_name"
         android:textColor="#2B394A"
-        android:textSize="13sp"
-        android:textStyle="bold"
+        android:textSize="18sp"
         android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/addressTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/address"
+        android:textColor="#2B394A"
+        android:textStyle="bold" />
 
     <!-- Address -->
 
@@ -42,23 +53,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/thumbnail"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@+id/addressTitle"
         android:text="@string/app_name"
-        android:textColor="#343434"
-        android:textSize="10sp" />
-
-    <!-- Category & rating -->
-
-    <TextView
-        android:id="@+id/categoryAndRating"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/address"
-        android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:text="@string/app_name"
-        android:textColor="#FF5757"
-        android:textSize="10sp" />
+        android:textColor="#2B394A" />
 
 </RelativeLayout>

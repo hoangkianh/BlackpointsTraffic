@@ -34,10 +34,10 @@
         android:theme="@style/AppTheme" >
 
         <!-- Google Play Services -->
-        <meta-data 
+        <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        
+
         <!-- Goolge API Key -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
@@ -51,6 +51,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.blackpointstraffic.DetailsActivity"
+            android:label="" >
         </activity>
     </application>
 
