@@ -122,6 +122,12 @@ public class NearMeFragment extends SupportMapFragment implements
 	public void onStatusChanged(String provider, int status, Bundle extras) {
 	}
 
+	@Override
+	public boolean onMarkerClick(Marker marker) {
+		marker.showInfoWindow();
+		return false;
+	}
+
 	private class GetPOIs extends AsyncTask<Void, Void, Void> {
 
 		private JSONArray poiArr = null;
@@ -186,11 +192,5 @@ public class NearMeFragment extends SupportMapFragment implements
 				googleMap.addMarker(markerOptions);
 			}
 		}
-	}
-
-	@Override
-	public boolean onMarkerClick(Marker marker) {
-		marker.showInfoWindow();
-		return false;
 	}
 }

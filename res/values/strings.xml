@@ -32,6 +32,7 @@
     <!-- url connection -->
     <!-- string name="URL_GET_ALL_POI">http://10.0.2.2:8080/BlackpointsTrafficServer/service/client/getAll</string-->
     <string name="URL_GET_ALL_POI">http://blackpoints.jelastic.lunacloud.com/service/client/getAll</string>
+    <string name="URL_GET_POI_IN_RADIUS">http://blackpoints.jelastic.lunacloud.com/service/client/getAll</string>
     
     <!-- Json node name -->
     <!-- ====== POI ====== -->
