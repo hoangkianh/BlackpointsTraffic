@@ -10,12 +10,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,6 +78,11 @@ public class NearMeFragment extends SupportMapFragment implements
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
+		// get preferences
+		SharedPreferences prefs = PreferenceManager
+				.getDefaultSharedPreferences(getActivity());
+		cirleRadius = Integer.parseInt(prefs.getString("prefDistance", "-1"));
+		zoomLevel = caculateZoomLevel(cirleRadius);
 
 		googleMap = getMap();
 		googleMap.setMyLocationEnabled(true);
@@ -108,6 +115,33 @@ public class NearMeFragment extends SupportMapFragment implements
 		googleMap.setOnInfoWindowClickListener(this);
 	}
 
+	private int caculateZoomLevel(int cirleRadius) {
+		switch (cirleRadius) {
+		case 500:
+			return 15;
+		case 1000:
+			return 14;
+		case 2000:
+			return 13;
+		case 5000:
+			return 12;
+		case 10000:
+		case 15000:
+			return 11;
+		case 20000:
+		case 25000:
+		case 30000:
+			return 10;
+		case 35000:
+		case 40000:
+		case 45000:
+		case 50000:
+			return 9;
+		default:
+			return 12;
+		}
+	}
+
 	@Override
 	public void onLocationChanged(Location location) {
 	}
@@ -132,10 +166,13 @@ public class NearMeFragment extends SupportMapFragment implements
 
 	@Override
 	public void onInfoWindowClick(Marker marker) {
-		Intent intent = new Intent(NearMeFragment.this.getActivity(), DetailsActivity.class);
-		intent.putExtra(getActivity().getString(R.string.TAG_NAME), marker.getTitle());
-		intent.putExtra(getActivity().getString(R.string.SNIPPET), marker.getSnippet());
-		
+		Intent intent = new Intent(NearMeFragment.this.getActivity(),
+				DetailsActivity.class);
+		intent.putExtra(getActivity().getString(R.string.TAG_NAME),
+				marker.getTitle());
+		intent.putExtra(getActivity().getString(R.string.SNIPPET),
+				marker.getSnippet());
+
 		startActivity(intent);
 	}
 
@@ -214,10 +251,10 @@ public class NearMeFragment extends SupportMapFragment implements
 						.icon(BitmapDescriptorFactory
 								.defaultMarker(BitmapDescriptorFactory.HUE_RED))
 						.title(title).snippet(snippet);
-				
+
 				googleMap.addMarker(markerOptions);
-				googleMap.setInfoWindowAdapter(
-						new CustomizedInfoWindowAdapter(getActivity()));
+				googleMap.setInfoWindowAdapter(new CustomizedInfoWindowAdapter(
+						getActivity()));
 			}
 		}
 	}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/title_general" >
+        <ListPreference 
+            android:title="@string/title_distance"
+            android:summary="@string/summary_distance"
+            android:key="prefDistance"
+            android:defaultValue="5000"
+            android:entries="@array/distanceKeys"
+            android:entryValues="@array/distanceValues" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

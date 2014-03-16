@@ -2,6 +2,7 @@ package com.blackpointstraffic;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -46,17 +47,17 @@ public class MainActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		ConnectionDetector connDetector = new ConnectionDetector(getApplicationContext());
-		
+		ConnectionDetector connDetector = new ConnectionDetector(
+				getApplicationContext());
+
 		if (!connDetector.isConnectingToInternet()) {
-			new DialogManager().showDialog(getApplicationContext()
-					, getString(R.string.caption_error_connection)
-					, getString(R.string.msg_error_connection)
-					, false);
-			
+			new DialogManager().showDialog(getApplicationContext(),
+					getString(R.string.caption_error_connection),
+					getString(R.string.msg_error_connection), false);
+
 			return;
 		}
-		
+
 		mTitle = mDrawerTitle = getTitle();
 
 		// load slide menu items
@@ -145,13 +146,7 @@ public class MainActivity extends FragmentActivity {
 		if (mDrawerToggle.onOptionsItemSelected(item)) {
 			return true;
 		}
-		// Handle action bar actions click
-		switch (item.getItemId()) {
-		case R.id.action_settings:
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	/* *
@@ -159,9 +154,6 @@ public class MainActivity extends FragmentActivity {
 	 */
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		// if nav drawer is opened, hide the action items
-		boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-		menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
 		return super.onPrepareOptionsMenu(menu);
 	}
 
@@ -177,6 +169,10 @@ public class MainActivity extends FragmentActivity {
 		case 1:
 			fragment = new NearMeFragment();
 			MapsInitializer.initialize(this);
+			break;
+		case 2:
+			Intent intent = new Intent(this, SettingActivity.class);
+			startActivity(intent);
 			break;
 		default:
 			break;
@@ -217,5 +213,4 @@ public class MainActivity extends FragmentActivity {
 		// Pass any configuration change to the drawer toggls
 		mDrawerToggle.onConfigurationChanged(newConfig);
 	}
-
 }

@@ -56,6 +56,10 @@
             android:name="com.blackpointstraffic.DetailsActivity"
             android:label="" >
         </activity>
+        <activity
+            android:name="com.blackpointstraffic.SettingActivity"
+            android:label="" >
+        </activity>
     </application>
 
 </manifest>
