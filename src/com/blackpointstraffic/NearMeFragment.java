@@ -206,7 +206,7 @@ public class NearMeFragment extends SupportMapFragment implements
 				String title = data.get(tag_name);
 				String snippet = data.get(tag_address) + "~"
 						+ data.get(tag_category) + "~" + data.get(tag_rating)
-						+ "~" + data.get(tag_image);
+						+ "~" + data.get(tag_image) + "~" + data.get(tag_date);
 
 				// add marker
 				MarkerOptions markerOptions = new MarkerOptions()

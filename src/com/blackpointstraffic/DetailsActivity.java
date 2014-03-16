@@ -36,16 +36,22 @@ public class DetailsActivity extends FragmentActivity {
 
 		Intent intent = getIntent();
 		String name = intent.getStringExtra(getString(R.string.TAG_NAME));
-		String[] snippet = intent.getStringExtra(getString(R.string.SNIPPET))
+		String[] data = intent.getStringExtra(getString(R.string.SNIPPET))
 				.split("~");
 
 		TextView txtName = (TextView) findViewById(R.id.name);
 		TextView txtAddress = (TextView) findViewById(R.id.address);
+		TextView txtDate = (TextView) findViewById(R.id.date);
+		TextView txtCategory = (TextView) findViewById(R.id.category);
+		TextView txtRating = (TextView) findViewById(R.id.rating);
 		ImageView imageView = (ImageView) findViewById(R.id.image);
 
 		txtName.setText(name);
-		txtAddress.setText(snippet[0]);
-		imageLoader.displayImage(snippet[3], imageView);
+		txtAddress.setText(data[0]);
+		txtCategory.setText(data[1]);
+		txtRating.setText(data[2]);
+		txtDate.setText(data[4]);		
+		imageLoader.displayImage(data[3], imageView);
 		
 		setTitle(name);
 	}

@@ -28,35 +28,108 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/thumbnail"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
         android:text="@string/app_name"
         android:textColor="#2B394A"
         android:textSize="18sp"
         android:typeface="sans" />
+
+    <!-- Address -->
 
     <TextView
         android:id="@+id/addressTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
-        android:layout_marginTop="2dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
         android:text="@string/address"
         android:textColor="#2B394A"
         android:textStyle="bold" />
-
-    <!-- Address -->
 
     <TextView
         android:id="@+id/address"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name"
-        android:layout_marginTop="2dp"
         android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
         android:layout_toRightOf="@+id/addressTitle"
         android:text="@string/app_name"
         android:textColor="#2B394A" />
+
+    <!-- Create date -->
+
+    <TextView
+        android:id="@+id/dateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/date"
+        android:textColor="#2B394A"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/dateTitle"
+        android:text="@string/app_name"
+        android:textColor="#2B394A" />
+    
+     <!-- Category -->
+
+    <TextView
+        android:id="@+id/categoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/category"
+        android:textColor="#2B394A"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/categoryTitle"
+        android:text="@string/app_name"
+        android:textColor="#FF5757" />
+    
+    
+     <!-- Rating -->
+
+    <TextView
+        android:id="@+id/ratingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/category"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/rating"
+        android:textColor="#2B394A"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/rating"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/category"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/ratingTitle"
+        android:text="@string/app_name"
+        android:textColor="#FF5757" />
 
 </RelativeLayout>
