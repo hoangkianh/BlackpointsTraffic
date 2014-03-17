@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Criteria;
@@ -17,6 +18,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
@@ -44,6 +46,7 @@ public class NearMeFragment extends SupportMapFragment implements
 	private GoogleMap googleMap;
 	private int cirleRadius = 5000;
 	private int zoomLevel = 12;
+	private Location currentLocation;
 
 	public NearMeFragment() {
 	}
@@ -69,9 +72,6 @@ public class NearMeFragment extends SupportMapFragment implements
 			Bundle savedInstanceState) {
 		View rootView = super.onCreateView(inflater, container,
 				savedInstanceState);
-
-		// call async task
-		new GetPOIs().execute();
 		return rootView;
 	}
 
@@ -93,11 +93,11 @@ public class NearMeFragment extends SupportMapFragment implements
 		String provider = locationManager.getBestProvider(criteria, true);
 
 		// Getting Current Location
-		Location location = locationManager.getLastKnownLocation(provider);
+		currentLocation = locationManager.getLastKnownLocation(provider);
 		locationManager.requestLocationUpdates(provider, 0, 0, this);
 
-		LatLng latLng = new LatLng(location.getLatitude(),
-				location.getLongitude());
+		LatLng latLng = new LatLng(currentLocation.getLatitude(),
+				currentLocation.getLongitude());
 
 		// Showing the current location in Google Map
 		googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
@@ -107,12 +107,15 @@ public class NearMeFragment extends SupportMapFragment implements
 
 		// add circle
 		CircleOptions circleOptions = new CircleOptions()
-				.center(new LatLng(location.getLatitude(), location
-						.getLongitude())).fillColor(0x30ff0000)
+				.center(new LatLng(currentLocation.getLatitude(),
+						currentLocation.getLongitude())).fillColor(0x30ff0000)
 				.strokeColor(0x60ff0000).strokeWidth(1).radius(cirleRadius);
 
 		googleMap.addCircle(circleOptions);
 		googleMap.setOnInfoWindowClickListener(this);
+
+		// call async task
+		new GetPOIs().execute();
 	}
 
 	private int caculateZoomLevel(int cirleRadius) {
@@ -207,23 +210,34 @@ public class NearMeFragment extends SupportMapFragment implements
 		protected Void doInBackground(Void... arg0) {
 
 			try {
-				poiArr = JSONParser.getJsonFromUrl(getActivity().getString(
-						R.string.URL_GET_ALL_POI));
+				StringBuilder urlService = new StringBuilder();
+				urlService.append(getActivity().getString(
+						R.string.URL_GET_POI_IN_RADIUS));
+				urlService.append("/" + currentLocation.getLongitude());
+				urlService.append("/" + currentLocation.getLatitude());
+				urlService.append("/" + cirleRadius);
 
-				for (int i = 0; i < poiArr.length(); i++) {
-					JSONObject jsonObject = poiArr.getJSONObject(i);
+				poiArr = JSONParser.getJsonFromUrl(urlService.toString());
 
-					Map<String, String> map = new HashMap<String, String>();
-					map.put(tag_id, jsonObject.getString(tag_id));
-					map.put(tag_name, jsonObject.getString(tag_name));
-					map.put(tag_address, jsonObject.getString(tag_address));
-					map.put(tag_image, jsonObject.getString(tag_image));
-					map.put(tag_geometry, jsonObject.getString(tag_geometry));
-					map.put(tag_category, jsonObject.getString(tag_category));
-					map.put(tag_rating, jsonObject.getString(tag_rating));
-					map.put(tag_date, jsonObject.getString(tag_date));
+				if (poiArr != null) {
 
-					poiList.add(map);
+					for (int i = 0; i < poiArr.length(); i++) {
+						JSONObject jsonObject = poiArr.getJSONObject(i);
+
+						Map<String, String> map = new HashMap<String, String>();
+						map.put(tag_id, jsonObject.getString(tag_id));
+						map.put(tag_name, jsonObject.getString(tag_name));
+						map.put(tag_address, jsonObject.getString(tag_address));
+						map.put(tag_image, jsonObject.getString(tag_image));
+						map.put(tag_geometry,
+								jsonObject.getString(tag_geometry));
+						map.put(tag_category,
+								jsonObject.getString(tag_category));
+						map.put(tag_rating, jsonObject.getString(tag_rating));
+						map.put(tag_date, jsonObject.getString(tag_date));
+
+						poiList.add(map);
+					}
 				}
 			} catch (JSONException e) {
 				e.printStackTrace();
@@ -235,26 +249,35 @@ public class NearMeFragment extends SupportMapFragment implements
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
 
-			for (Map<String, String> data : poiList) {
-				List<GeoLocation> geoList = GeoUtil.toLatLng(data
-						.get(tag_geometry));
-				LatLng latLng = new LatLng(geoList.get(0).getLat(), geoList
-						.get(0).getLng());
-				String title = data.get(tag_name);
-				String snippet = data.get(tag_address) + "~"
-						+ data.get(tag_category) + "~" + data.get(tag_rating)
-						+ "~" + data.get(tag_image) + "~" + data.get(tag_date);
+			if (poiList.size() > 0) {
 
-				// add marker
-				MarkerOptions markerOptions = new MarkerOptions()
-						.position(latLng)
-						.icon(BitmapDescriptorFactory
-								.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-						.title(title).snippet(snippet);
+				for (Map<String, String> data : poiList) {
+					List<GeoLocation> geoList = GeoUtil.toLatLng(data
+							.get(tag_geometry));
+					LatLng latLng = new LatLng(geoList.get(0).getLat(), geoList
+							.get(0).getLng());
+					String title = data.get(tag_name);
+					String snippet = data.get(tag_address) + "~"
+							+ data.get(tag_category) + "~"
+							+ data.get(tag_rating) + "~" + data.get(tag_image)
+							+ "~" + data.get(tag_date);
 
-				googleMap.addMarker(markerOptions);
-				googleMap.setInfoWindowAdapter(new CustomizedInfoWindowAdapter(
-						getActivity()));
+					// add marker
+					MarkerOptions markerOptions = new MarkerOptions()
+							.position(latLng)
+							.icon(BitmapDescriptorFactory
+									.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+							.title(title).snippet(snippet);
+
+					googleMap.addMarker(markerOptions);
+					googleMap.setInfoWindowAdapter(new CustomizedInfoWindowAdapter(
+									getActivity()));
+				}
+				
+				// vibrate
+				Vibrator v = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+				long[] pattern = {0, 200, 200, 200, 200, 500, 200, 500, 200, 500, 500, 200, 1000};
+				v.vibrate(pattern, -1);
 			}
 		}
 	}

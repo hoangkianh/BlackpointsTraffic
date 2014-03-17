@@ -15,7 +15,6 @@
         <item>Trang chủ</item>
         <item>Gần tôi</item>
         <item>Cài đặt</item>
-        <item>Thông tin</item>
     </string-array>
 
     <!-- Nav Drawer List Item Icons -->
@@ -24,9 +23,18 @@
         <item>@drawable/ic_home</item>
         <item>@drawable/ic_nearme</item>
         <item>@drawable/ic_settings</item>
-        <item>@drawable/ic_about</item>
     </array>
 
+    <!-- Home -->
+    <string name="graduated_project">Đồ án tốt nghiệp</string>
+    <string name="project_name_1">Hệ thống cảnh báo điểm đen TNGT</string>
+    <string name="project_name_2">trên nền điện toán đám mây</string>
+    <string name="student">Sinh viên:</string>
+    <string name="student_name">NGUYỄN HOÀNG ANH</string>
+    <string name="student_roll_and_class">(1000321) (CNPM K51)</string>
+    <string name="teacher">GVHD:</string>
+    <string name="teacher_name">ThS. BÙI NGỌC DŨNG</string>
+    
     <!-- Settings -->
     <!-- Title -->
     <string name="title_general">Cài đặt chung</string>
@@ -74,7 +82,7 @@
 
     <!-- url connection -->
     <string name="URL_GET_ALL_POI">http://blackpoints.jelastic.lunacloud.com/service/client/getAll</string>
-    <string name="URL_GET_POI_IN_RADIUS">http://blackpoints.jelastic.lunacloud.com/service/client/getAll</string>
+    <string name="URL_GET_POI_IN_RADIUS">http://blackpoints.jelastic.lunacloud.com/service/client/getPOIInRadius/</string>
 
     <!-- Json node name -->
     <!-- ====== POI ====== -->
