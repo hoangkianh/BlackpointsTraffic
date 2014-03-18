@@ -13,7 +13,7 @@
     <string name="distance">Khoảng cách:</string>
     
     <!-- Notification -->
-    <string name="notification_Title">CHÚ Ý !! CẢNH BÁO ĐIỂM ĐEN</string>
+    <string name="notification_Title">CẢNH BÁO ĐIỂM ĐEN</string>
     <string name="notification_Content">Bạn đang ở gần </string>
 
     <!-- Nav Drawer Menu Items -->

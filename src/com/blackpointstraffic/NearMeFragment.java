@@ -10,7 +10,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Notification;
-import android.app.Notification.Builder;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -186,6 +185,53 @@ public class NearMeFragment extends SupportMapFragment implements
 		startActivity(intent);
 	}
 
+	public void showNotification(Map<String, String> data) {
+		NotificationManager notificationManager = (NotificationManager) getActivity()
+				.getSystemService(Context.NOTIFICATION_SERVICE);
+
+		double distance = Double.parseDouble(data
+				.get(getString(R.string.TAG_DISTANCE)));
+
+		String snippet = data
+				.get(getActivity().getString(R.string.TAG_ADDRESS))
+				+ "~"
+				+ data.get(getActivity().getString(R.string.TAG_CATEGORY))
+				+ "~"
+				+ data.get(getActivity().getString(R.string.TAG_RATING))
+				+ "~"
+				+ data.get(getActivity().getString(R.string.TAG_IMAGE))
+				+ "~"
+				+ data.get(getActivity().getString(R.string.TAG_CREATE_DATE))
+				+ "~"
+				+ data.get(getActivity().getString(R.string.TAG_DESCRIPTION))
+				+ "~"
+				+ data.get(getActivity().getString(R.string.TAG_DISTANCE));
+
+		Intent intent = new Intent(getActivity(), DetailsActivity.class);
+		intent.putExtra(getActivity().getString(R.string.TAG_NAME),
+				data.get(getActivity().getString(R.string.TAG_NAME)));
+		intent.putExtra(getActivity().getString(R.string.SNIPPET), snippet);
+
+		PendingIntent pIntent = PendingIntent.getActivity(getActivity(), 0,
+				intent, 0);
+
+		String notificationContent = data.get(getString(R.string.TAG_NAME))
+				+ " ("
+				+ (distance >= 1000 ? (int) (distance / 1000) + "km)"
+						: (int) (distance / 100) + "m)");
+
+		Notification n = new Notification.Builder(getActivity())
+				.setContentTitle(getString(R.string.notification_Title))
+				.setContentText(notificationContent)
+				.setStyle(
+						new Notification.BigTextStyle()
+								.bigText(notificationContent))
+				.setSmallIcon(R.drawable.ic_launcher).setContentIntent(pIntent)
+				.setAutoCancel(true).build();
+		n.defaults |= Notification.DEFAULT_SOUND;
+		notificationManager.notify(0, n);
+	}
+
 	private class GetPOIs extends AsyncTask<Void, Void, Void> {
 
 		private JSONArray poiArr = null;
@@ -303,30 +349,5 @@ public class NearMeFragment extends SupportMapFragment implements
 				showNotification(poiList.get(0));
 			}
 		}
-	}
-
-	public void showNotification(Map<String, String> map) {
-		NotificationManager notificationManager = (NotificationManager) getActivity()
-				.getSystemService(Context.NOTIFICATION_SERVICE);
-
-		double distance = Double.parseDouble(map
-				.get(getString(R.string.TAG_DISTANCE)));
-
-		Intent intent = new Intent(getActivity(), DetailsActivity.class);
-		PendingIntent pIntent = PendingIntent.getActivity(getActivity(), 0,
-				intent, 0);
-
-		Notification n = new Notification.Builder(getActivity())
-				.setContentTitle(getString(R.string.notification_Title))
-				.setContentText(
-						getString(R.string.notification_Content)
-								+ " "
-								+ map.get(getString(R.string.TAG_NAME))
-								+ (distance >= 1000 ? (int) (distance / 1000)
-										+ "km" : (int) (distance / 100) + "m"))
-				.setStyle(new Notification.BigTextStyle().bigText("..."))
-				.setSmallIcon(R.drawable.ic_launcher).setContentIntent(pIntent)
-				.setAutoCancel(true).build();
-		notificationManager.notify(0, n);
 	}
 }
