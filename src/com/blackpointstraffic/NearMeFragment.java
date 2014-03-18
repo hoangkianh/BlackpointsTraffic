@@ -82,6 +82,9 @@ public class NearMeFragment extends SupportMapFragment implements
 		SharedPreferences prefs = PreferenceManager
 				.getDefaultSharedPreferences(getActivity());
 		cirleRadius = Integer.parseInt(prefs.getString("prefDistance", "-1"));
+		if (cirleRadius < 0) {
+			cirleRadius = 5000;
+		}
 		zoomLevel = caculateZoomLevel(cirleRadius);
 
 		googleMap = getMap();
@@ -192,6 +195,8 @@ public class NearMeFragment extends SupportMapFragment implements
 		private String tag_category;
 		private String tag_rating;
 		private String tag_date;
+		private String tag_description;
+		private String tag_distance;
 
 		public GetPOIs() {
 			poiList = new ArrayList<Map<String, String>>();
@@ -204,6 +209,8 @@ public class NearMeFragment extends SupportMapFragment implements
 			tag_category = getActivity().getString(R.string.TAG_CATEGORY);
 			tag_rating = getActivity().getString(R.string.TAG_RATING);
 			tag_date = getActivity().getString(R.string.TAG_CREATE_DATE);
+			tag_description = getActivity().getString(R.string.TAG_DESCRIPTION);
+			tag_distance = getActivity().getString(R.string.TAG_DISTANCE);
 		}
 
 		@Override
@@ -235,6 +242,8 @@ public class NearMeFragment extends SupportMapFragment implements
 								jsonObject.getString(tag_category));
 						map.put(tag_rating, jsonObject.getString(tag_rating));
 						map.put(tag_date, jsonObject.getString(tag_date));
+						map.put(tag_description, jsonObject.getString(tag_description));
+						map.put(tag_distance, jsonObject.getString(tag_distance));
 
 						poiList.add(map);
 					}
@@ -260,7 +269,8 @@ public class NearMeFragment extends SupportMapFragment implements
 					String snippet = data.get(tag_address) + "~"
 							+ data.get(tag_category) + "~"
 							+ data.get(tag_rating) + "~" + data.get(tag_image)
-							+ "~" + data.get(tag_date);
+							+ "~" + data.get(tag_date) + "~" + data.get(tag_description)
+							+ "~" + data.get(tag_distance);
 
 					// add marker
 					MarkerOptions markerOptions = new MarkerOptions()
@@ -276,7 +286,7 @@ public class NearMeFragment extends SupportMapFragment implements
 				
 				// vibrate
 				Vibrator v = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-				long[] pattern = {0, 200, 200, 200, 200, 500, 200, 500, 200, 500, 500, 200, 1000};
+				long[] pattern = {0, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500};
 				v.vibrate(pattern, -1);
 			}
 		}

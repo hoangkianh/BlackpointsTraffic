@@ -44,13 +44,18 @@ public class DetailsActivity extends FragmentActivity {
 		TextView txtDate = (TextView) findViewById(R.id.date);
 		TextView txtCategory = (TextView) findViewById(R.id.category);
 		TextView txtRating = (TextView) findViewById(R.id.rating);
+		TextView txtDescription = (TextView) findViewById(R.id.description);
+		TextView txtDistance = (TextView) findViewById(R.id.distance);
+		
 		ImageView imageView = (ImageView) findViewById(R.id.image);
 
 		txtName.setText(name);
 		txtAddress.setText(data[0]);
 		txtCategory.setText(data[1]);
 		txtRating.setText(data[2]);
-		txtDate.setText(data[4]);		
+		txtDate.setText(data[4]);
+		txtDescription.setText(data[5]);
+		txtDistance.setText(data[6]);
 		imageLoader.displayImage(data[3], imageView);
 		
 		setTitle(name);

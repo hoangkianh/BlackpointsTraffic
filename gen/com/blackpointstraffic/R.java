@@ -250,36 +250,40 @@ containing a value of this type.
         public static final int list_selector=0x7f020026;
     }
     public static final class id {
-        public static final int address=0x7f060009;
-        public static final int addressTitle=0x7f060008;
-        public static final int category=0x7f06000d;
-        public static final int categoryAndRating=0x7f06001d;
-        public static final int categoryTitle=0x7f06000c;
-        public static final int date=0x7f06000b;
-        public static final int dateTitle=0x7f06000a;
-        public static final int drawer_layout=0x7f060010;
-        public static final int frame_container=0x7f060011;
-        public static final int graduated_project=0x7f060015;
+        public static final int address=0x7f06000b;
+        public static final int addressTitle=0x7f06000a;
+        public static final int category=0x7f06000f;
+        public static final int categoryAndRating=0x7f060021;
+        public static final int categoryTitle=0x7f06000e;
+        public static final int date=0x7f06000d;
+        public static final int dateTitle=0x7f06000c;
+        public static final int description=0x7f060013;
+        public static final int descriptionTitle=0x7f060012;
+        public static final int distance=0x7f060009;
+        public static final int distanceTitle=0x7f060008;
+        public static final int drawer_layout=0x7f060014;
+        public static final int frame_container=0x7f060015;
+        public static final int graduated_project=0x7f060019;
         public static final int hybrid=0x7f060004;
-        public static final int icon=0x7f060013;
+        public static final int icon=0x7f060017;
         public static final int image=0x7f060006;
-        public static final int list_slidermenu=0x7f060012;
+        public static final int list_slidermenu=0x7f060016;
         public static final int name=0x7f060007;
         public static final int none=0x7f060000;
         public static final int normal=0x7f060001;
-        public static final int project_name_1=0x7f060016;
-        public static final int project_name_2=0x7f060017;
-        public static final int rating=0x7f06000f;
-        public static final int ratingTitle=0x7f06000e;
+        public static final int project_name_1=0x7f06001a;
+        public static final int project_name_2=0x7f06001b;
+        public static final int rating=0x7f060011;
+        public static final int ratingTitle=0x7f060010;
         public static final int satellite=0x7f060002;
-        public static final int student=0x7f060018;
-        public static final int student_name=0x7f06001b;
-        public static final int student_roll_and_class=0x7f06001a;
-        public static final int teacher=0x7f060019;
-        public static final int teacher_name=0x7f06001c;
+        public static final int student=0x7f06001c;
+        public static final int student_name=0x7f06001f;
+        public static final int student_roll_and_class=0x7f06001e;
+        public static final int teacher=0x7f06001d;
+        public static final int teacher_name=0x7f060020;
         public static final int terrain=0x7f060003;
         public static final int thumbnail=0x7f060005;
-        public static final int title=0x7f060014;
+        public static final int title=0x7f060018;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f080000;
@@ -298,25 +302,26 @@ containing a value of this type.
     }
     public static final class string {
         public static final int SNIPPET=0x7f07001c;
-        public static final int TAG_ADDRESS=0x7f070034;
-        public static final int TAG_CATEGORY=0x7f07003b;
-        public static final int TAG_CITY=0x7f070035;
-        public static final int TAG_CREATE_DATE=0x7f07003d;
-        public static final int TAG_DESCRIPTION=0x7f070037;
-        public static final int TAG_DISTRICT=0x7f070036;
-        public static final int TAG_GEOMETRY=0x7f07003a;
+        public static final int TAG_ADDRESS=0x7f070036;
+        public static final int TAG_CATEGORY=0x7f07003d;
+        public static final int TAG_CITY=0x7f070037;
+        public static final int TAG_CREATE_DATE=0x7f07003f;
+        public static final int TAG_DESCRIPTION=0x7f070039;
+        public static final int TAG_DISTANCE=0x7f070040;
+        public static final int TAG_DISTRICT=0x7f070038;
+        public static final int TAG_GEOMETRY=0x7f07003c;
         /**  Json node name 
  ====== POI ====== 
          */
-        public static final int TAG_ID=0x7f070032;
-        public static final int TAG_IMAGE=0x7f070038;
-        public static final int TAG_MARKER_ICON=0x7f070039;
-        public static final int TAG_NAME=0x7f070033;
-        public static final int TAG_RATING=0x7f07003c;
+        public static final int TAG_ID=0x7f070034;
+        public static final int TAG_IMAGE=0x7f07003a;
+        public static final int TAG_MARKER_ICON=0x7f07003b;
+        public static final int TAG_NAME=0x7f070035;
+        public static final int TAG_RATING=0x7f07003e;
         /**  url connection 
          */
-        public static final int URL_GET_ALL_POI=0x7f070030;
-        public static final int URL_GET_POI_IN_RADIUS=0x7f070031;
+        public static final int URL_GET_ALL_POI=0x7f070032;
+        public static final int URL_GET_POI_IN_RADIUS=0x7f070033;
         public static final int action_settings=0x7f07001b;
         public static final int address=0x7f07001e;
         public static final int app_name=0x7f07001a;
@@ -345,7 +350,7 @@ containing a value of this type.
         public static final int auth_client_using_bad_version_title=0x7f070014;
         /**  Dialog message 
          */
-        public static final int caption_error_connection=0x7f07002e;
+        public static final int caption_error_connection=0x7f070030;
         public static final int category=0x7f070020;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
@@ -421,28 +426,30 @@ containing a value of this type.
         public static final int date=0x7f07001f;
         /**  Content Description 
          */
-        public static final int desc_list_item_icon=0x7f07002d;
+        public static final int desc_list_item_icon=0x7f07002f;
+        public static final int description=0x7f070022;
+        public static final int distance=0x7f070023;
         /**  Home 
          */
-        public static final int graduated_project=0x7f070022;
+        public static final int graduated_project=0x7f070024;
         public static final int hello_world=0x7f07001d;
-        public static final int msg_error_connection=0x7f07002f;
-        public static final int project_name_1=0x7f070023;
-        public static final int project_name_2=0x7f070024;
+        public static final int msg_error_connection=0x7f070031;
+        public static final int project_name_1=0x7f070025;
+        public static final int project_name_2=0x7f070026;
         public static final int rating=0x7f070021;
-        public static final int student=0x7f070025;
-        public static final int student_name=0x7f070026;
-        public static final int student_roll_and_class=0x7f070027;
+        public static final int student=0x7f070027;
+        public static final int student_name=0x7f070028;
+        public static final int student_roll_and_class=0x7f070029;
         /**  Summary 
          */
-        public static final int summary_distance=0x7f07002c;
-        public static final int teacher=0x7f070028;
-        public static final int teacher_name=0x7f070029;
-        public static final int title_distance=0x7f07002b;
+        public static final int summary_distance=0x7f07002e;
+        public static final int teacher=0x7f07002a;
+        public static final int teacher_name=0x7f07002b;
+        public static final int title_distance=0x7f07002d;
         /**  Settings 
  Title 
          */
-        public static final int title_general=0x7f07002a;
+        public static final int title_general=0x7f07002c;
     }
     public static final class style {
         /** 
