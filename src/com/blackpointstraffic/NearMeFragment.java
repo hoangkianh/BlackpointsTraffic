@@ -9,6 +9,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Notification;
+import android.app.Notification.Builder;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -97,7 +101,7 @@ public class NearMeFragment extends SupportMapFragment implements
 
 		// Getting Current Location
 		currentLocation = locationManager.getLastKnownLocation(provider);
-		locationManager.requestLocationUpdates(provider, 0, 0, this);
+		locationManager.requestLocationUpdates(provider, 15000, 0, this);
 
 		LatLng latLng = new LatLng(currentLocation.getLatitude(),
 				currentLocation.getLongitude());
@@ -242,8 +246,10 @@ public class NearMeFragment extends SupportMapFragment implements
 								jsonObject.getString(tag_category));
 						map.put(tag_rating, jsonObject.getString(tag_rating));
 						map.put(tag_date, jsonObject.getString(tag_date));
-						map.put(tag_description, jsonObject.getString(tag_description));
-						map.put(tag_distance, jsonObject.getString(tag_distance));
+						map.put(tag_description,
+								jsonObject.getString(tag_description));
+						map.put(tag_distance,
+								jsonObject.getString(tag_distance));
 
 						poiList.add(map);
 					}
@@ -269,8 +275,9 @@ public class NearMeFragment extends SupportMapFragment implements
 					String snippet = data.get(tag_address) + "~"
 							+ data.get(tag_category) + "~"
 							+ data.get(tag_rating) + "~" + data.get(tag_image)
-							+ "~" + data.get(tag_date) + "~" + data.get(tag_description)
-							+ "~" + data.get(tag_distance);
+							+ "~" + data.get(tag_date) + "~"
+							+ data.get(tag_description) + "~"
+							+ data.get(tag_distance);
 
 					// add marker
 					MarkerOptions markerOptions = new MarkerOptions()
@@ -280,15 +287,46 @@ public class NearMeFragment extends SupportMapFragment implements
 							.title(title).snippet(snippet);
 
 					googleMap.addMarker(markerOptions);
-					googleMap.setInfoWindowAdapter(new CustomizedInfoWindowAdapter(
+					googleMap
+							.setInfoWindowAdapter(new CustomizedInfoWindowAdapter(
 									getActivity()));
 				}
-				
+
 				// vibrate
-				Vibrator v = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-				long[] pattern = {0, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500};
+				Vibrator v = (Vibrator) getActivity().getSystemService(
+						Context.VIBRATOR_SERVICE);
+				long[] pattern = { 0, 500, 500, 500, 500, 500, 500, 500, 500,
+						500, 500, 500, 500 };
 				v.vibrate(pattern, -1);
+
+				// show notification
+				showNotification(poiList.get(0));
 			}
 		}
+	}
+
+	public void showNotification(Map<String, String> map) {
+		NotificationManager notificationManager = (NotificationManager) getActivity()
+				.getSystemService(Context.NOTIFICATION_SERVICE);
+
+		double distance = Double.parseDouble(map
+				.get(getString(R.string.TAG_DISTANCE)));
+
+		Intent intent = new Intent(getActivity(), DetailsActivity.class);
+		PendingIntent pIntent = PendingIntent.getActivity(getActivity(), 0,
+				intent, 0);
+
+		Notification n = new Notification.Builder(getActivity())
+				.setContentTitle(getString(R.string.notification_Title))
+				.setContentText(
+						getString(R.string.notification_Content)
+								+ " "
+								+ map.get(getString(R.string.TAG_NAME))
+								+ (distance >= 1000 ? (int) (distance / 1000)
+										+ "km" : (int) (distance / 100) + "m"))
+				.setStyle(new Notification.BigTextStyle().bigText("..."))
+				.setSmallIcon(R.drawable.ic_launcher).setContentIntent(pIntent)
+				.setAutoCancel(true).build();
+		notificationManager.notify(0, n);
 	}
 }

@@ -11,6 +11,10 @@
     <string name="rating">Xếp hạng:</string>
     <string name="description">Mô tả:</string>
     <string name="distance">Khoảng cách:</string>
+    
+    <!-- Notification -->
+    <string name="notification_Title">CHÚ Ý !! CẢNH BÁO ĐIỂM ĐEN</string>
+    <string name="notification_Content">Bạn đang ở gần </string>
 
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">

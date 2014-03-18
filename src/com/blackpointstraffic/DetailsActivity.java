@@ -46,7 +46,7 @@ public class DetailsActivity extends FragmentActivity {
 		TextView txtRating = (TextView) findViewById(R.id.rating);
 		TextView txtDescription = (TextView) findViewById(R.id.description);
 		TextView txtDistance = (TextView) findViewById(R.id.distance);
-		
+
 		ImageView imageView = (ImageView) findViewById(R.id.image);
 
 		txtName.setText(name);
@@ -55,9 +55,13 @@ public class DetailsActivity extends FragmentActivity {
 		txtRating.setText(data[2]);
 		txtDate.setText(data[4]);
 		txtDescription.setText(data[5]);
-		txtDistance.setText(data[6]);
+
+		double distance = Double.parseDouble(data[6]);
+
+		txtDistance.setText((distance >= 1000 ? (int) (distance / 1000) + "km"
+				: (int) (distance / 100) + "m"));
 		imageLoader.displayImage(data[3], imageView);
-		
+
 		setTitle(name);
 	}
 

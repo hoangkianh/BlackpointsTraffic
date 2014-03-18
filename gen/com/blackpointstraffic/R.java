@@ -302,26 +302,26 @@ containing a value of this type.
     }
     public static final class string {
         public static final int SNIPPET=0x7f07001c;
-        public static final int TAG_ADDRESS=0x7f070036;
-        public static final int TAG_CATEGORY=0x7f07003d;
-        public static final int TAG_CITY=0x7f070037;
-        public static final int TAG_CREATE_DATE=0x7f07003f;
-        public static final int TAG_DESCRIPTION=0x7f070039;
-        public static final int TAG_DISTANCE=0x7f070040;
-        public static final int TAG_DISTRICT=0x7f070038;
-        public static final int TAG_GEOMETRY=0x7f07003c;
+        public static final int TAG_ADDRESS=0x7f070038;
+        public static final int TAG_CATEGORY=0x7f07003f;
+        public static final int TAG_CITY=0x7f070039;
+        public static final int TAG_CREATE_DATE=0x7f070041;
+        public static final int TAG_DESCRIPTION=0x7f07003b;
+        public static final int TAG_DISTANCE=0x7f070042;
+        public static final int TAG_DISTRICT=0x7f07003a;
+        public static final int TAG_GEOMETRY=0x7f07003e;
         /**  Json node name 
  ====== POI ====== 
          */
-        public static final int TAG_ID=0x7f070034;
-        public static final int TAG_IMAGE=0x7f07003a;
-        public static final int TAG_MARKER_ICON=0x7f07003b;
-        public static final int TAG_NAME=0x7f070035;
-        public static final int TAG_RATING=0x7f07003e;
+        public static final int TAG_ID=0x7f070036;
+        public static final int TAG_IMAGE=0x7f07003c;
+        public static final int TAG_MARKER_ICON=0x7f07003d;
+        public static final int TAG_NAME=0x7f070037;
+        public static final int TAG_RATING=0x7f070040;
         /**  url connection 
          */
-        public static final int URL_GET_ALL_POI=0x7f070032;
-        public static final int URL_GET_POI_IN_RADIUS=0x7f070033;
+        public static final int URL_GET_ALL_POI=0x7f070034;
+        public static final int URL_GET_POI_IN_RADIUS=0x7f070035;
         public static final int action_settings=0x7f07001b;
         public static final int address=0x7f07001e;
         public static final int app_name=0x7f07001a;
@@ -350,7 +350,7 @@ containing a value of this type.
         public static final int auth_client_using_bad_version_title=0x7f070014;
         /**  Dialog message 
          */
-        public static final int caption_error_connection=0x7f070030;
+        public static final int caption_error_connection=0x7f070032;
         public static final int category=0x7f070020;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
@@ -426,30 +426,34 @@ containing a value of this type.
         public static final int date=0x7f07001f;
         /**  Content Description 
          */
-        public static final int desc_list_item_icon=0x7f07002f;
+        public static final int desc_list_item_icon=0x7f070031;
         public static final int description=0x7f070022;
         public static final int distance=0x7f070023;
         /**  Home 
          */
-        public static final int graduated_project=0x7f070024;
+        public static final int graduated_project=0x7f070026;
         public static final int hello_world=0x7f07001d;
-        public static final int msg_error_connection=0x7f070031;
-        public static final int project_name_1=0x7f070025;
-        public static final int project_name_2=0x7f070026;
+        public static final int msg_error_connection=0x7f070033;
+        public static final int notification_Content=0x7f070025;
+        /**  Notification 
+         */
+        public static final int notification_Title=0x7f070024;
+        public static final int project_name_1=0x7f070027;
+        public static final int project_name_2=0x7f070028;
         public static final int rating=0x7f070021;
-        public static final int student=0x7f070027;
-        public static final int student_name=0x7f070028;
-        public static final int student_roll_and_class=0x7f070029;
+        public static final int student=0x7f070029;
+        public static final int student_name=0x7f07002a;
+        public static final int student_roll_and_class=0x7f07002b;
         /**  Summary 
          */
-        public static final int summary_distance=0x7f07002e;
-        public static final int teacher=0x7f07002a;
-        public static final int teacher_name=0x7f07002b;
-        public static final int title_distance=0x7f07002d;
+        public static final int summary_distance=0x7f070030;
+        public static final int teacher=0x7f07002c;
+        public static final int teacher_name=0x7f07002d;
+        public static final int title_distance=0x7f07002f;
         /**  Settings 
  Title 
          */
-        public static final int title_general=0x7f07002c;
+        public static final int title_general=0x7f07002e;
     }
     public static final class style {
         /** 
