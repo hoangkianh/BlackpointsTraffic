@@ -1,4 +1,8 @@
 #################
+## NetBeans
+#################
+nbproject/private/
+#################
 ## Eclipse
 #################
 # External tool builders
