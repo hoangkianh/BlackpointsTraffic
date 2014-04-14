@@ -32,10 +32,8 @@
     </array>
 
     <!-- Home -->
-    <string name="graduated_project">Đồ án tốt nghiệp</string>
     <string name="project_name_1">Hệ thống cảnh báo điểm đen TNGT</string>
     <string name="project_name_2">trên nền điện toán đám mây</string>
-    <string name="student">Sinh viên:</string>
     <string name="student_name">NGUYỄN HOÀNG ANH</string>
     <string name="student_roll_and_class">(1000321) (CNPM K51)</string>
     <string name="teacher">GVHD:</string>
@@ -87,8 +85,8 @@
     <string name="msg_error_connection">Opps! Ứng dụng này yêu cầu kết nối Internet.\n Hãy kiểm tra lại kết nối Internet của bạn.</string>
 
     <!-- url connection -->
-    <string name="URL_GET_ALL_POI">http://blackpoints.jelastic.lunacloud.com/service/client/getAll</string>
-    <string name="URL_GET_POI_IN_RADIUS">http://blackpoints.jelastic.lunacloud.com/service/client/getPOIInRadius/</string>
+    <string name="URL_GET_ALL_POI">http://blackpointstraffic.mpaas.io/service/client/getAll</string>
+    <string name="URL_GET_POI_IN_RADIUS">http://blackpointstraffic.mpaas.io/service/client/getPOIInRadius/</string>
 
     <!-- Json node name -->
     <!-- ====== POI ====== -->

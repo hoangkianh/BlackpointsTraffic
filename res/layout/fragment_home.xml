@@ -2,27 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2B394A" >
-
-    <TextView
-        android:id="@+id/graduated_project"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:gravity="center_horizontal"
-        android:text="@string/graduated_project"
-        android:textSize="30sp"
-        android:textColor="#FFFFFF" />
+    android:background="@drawable/bg"
+    android:fitsSystemWindows="false" >
 
     <TextView
         android:id="@+id/project_name_1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/graduated_project"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
         android:gravity="center_horizontal"
         android:text="@string/project_name_1"
-        android:textSize="15sp"
+        android:textSize="18sp"
         android:textColor="#FFFFFF" />
 
     <TextView
@@ -33,28 +23,6 @@
         android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
         android:text="@string/project_name_2"
-        android:textSize="15sp"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/student"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/project_name_2"
-        android:layout_marginTop="30dp"
-        android:paddingLeft="30dp"
-        android:text="@string/student"
-        android:textSize="15sp"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/teacher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/student_roll_and_class"
-        android:layout_marginTop="5dp"
-        android:paddingLeft="30dp"
-        android:text="@string/teacher"
         android:textSize="15sp"
         android:textColor="#FFFFFF" />
 
@@ -72,9 +40,9 @@
         android:id="@+id/student_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/student"
-        android:layout_alignBottom="@+id/student"
-        android:layout_toRightOf="@+id/student"
+        android:layout_alignLeft="@+id/teacher_name"
+        android:layout_below="@+id/project_name_2"
+        android:layout_marginTop="31dp"
         android:text="@string/student_name"
         android:textColor="#FF5757"
         android:textSize="15sp"
@@ -84,12 +52,24 @@
         android:id="@+id/teacher_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/teacher"
-        android:layout_alignBottom="@+id/teacher"
-        android:layout_alignRight="@+id/student_roll_and_class"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="18dp"
+        android:layout_toRightOf="@+id/teacher"
         android:text="@string/teacher_name"
         android:textColor="#FF5757"
         android:textSize="15sp"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="27dp"
+        android:paddingLeft="30dp"
+        android:text="@string/teacher"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
 
 </RelativeLayout>
