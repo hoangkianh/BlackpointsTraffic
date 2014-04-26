@@ -85,8 +85,8 @@
     <string name="msg_error_connection">Opps! Ứng dụng này yêu cầu kết nối Internet.\n Hãy kiểm tra lại kết nối Internet của bạn.</string>
 
     <!-- url connection -->
-    <string name="URL_GET_ALL_POI">http://blackpointstraffic.jelastic.lunacloud.com/service/client/getAll</string>
-    <string name="URL_GET_POI_IN_RADIUS">http://blackpointstraffic.jelastic.lunacloud.com/service/client/getPOIInRadius/</string>
+    <string name="URL_GET_ALL_POI">http://blackpoints.jelastic.lunacloud.com/service/client/getAll</string>
+    <string name="URL_GET_POI_IN_RADIUS">http://blackpoints.jelastic.lunacloud.com/service/client/getPOIInRadius/</string>
 
     <!-- Json node name -->
     <!-- ====== POI ====== -->
